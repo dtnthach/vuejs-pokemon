@@ -52,8 +52,8 @@ export default {
         this.rules[0].value === this.rules[1].value
       ) {
         console.log("Right...");
-        this.$refs[`card-${this.rules[0].index}`].onEnabledDisabledMode();
-        this.$refs[`card-${this.rules[1].index}`].onEnabledDisabledMode();
+        this.$refs[`card-${this.rules[0].index}`][0].onEnabledDisabledMode();
+        this.$refs[`card-${this.rules[1].index}`][0].onEnabledDisabledMode();
         this.rules = [];
 
         const disabledElements = document.querySelectorAll(
@@ -72,8 +72,9 @@ export default {
       ) {
         console.log("wrong!");
         setTimeout(() => {
-          this.$refs[`card-${this.rules[0].index}`].onFlipBackCard();
-          this.$refs[`card-${this.rules[1].index}`].onFlipBackCard();
+          //console.log(this.$refs[`card-${this.rules[0].index}`]);
+          this.$refs[`card-${this.rules[0].index}`][0].onFlipBackCard();
+          this.$refs[`card-${this.rules[1].index}`][0].onFlipBackCard();
           this.rules = [];
         }, 800);
       } else return false;
