@@ -45,8 +45,15 @@ export default {
   },
   methods: {
     checkRule(card) {
+      console.log(card);
+
       if (this.rules.length === 2) return false;
+
+      if (this.rules.length === 1 && this.rules[0].index === card.index)
+        return false;
+
       this.rules.push(card);
+
       if (
         this.rules.length === 2 &&
         this.rules[0].value === this.rules[1].value
@@ -72,7 +79,6 @@ export default {
       ) {
         console.log("wrong!");
         setTimeout(() => {
-          //console.log(this.$refs[`card-${this.rules[0].index}`]);
           this.$refs[`card-${this.rules[0].index}`][0].onFlipBackCard();
           this.$refs[`card-${this.rules[1].index}`][0].onFlipBackCard();
           this.rules = [];

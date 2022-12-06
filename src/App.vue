@@ -53,8 +53,9 @@ export default {
 
       const firstCards = Array.from(
         { length: this.settings.totalOfBlocks / 2 },
-        (_, i) => i + 1
+        () => Math.floor(Math.random() * 64) + 1
       );
+      console.log(firstCards);
       const secondCards = [...firstCards];
       const cards = [...firstCards, ...secondCards];
 
